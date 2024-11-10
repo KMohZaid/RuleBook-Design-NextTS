@@ -1,0 +1,194 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --background: #171616;
+    --foreground: #959493;;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.page-title {
+  width: 100%;
+  max-width: 940px;
+  color: #56890c;
+  border-collapse: collapse;
+}
+
+.page-title th {
+  background-color: #232222;
+  text-align: center;
+  padding: 10px;
+  font-size: 1.1em;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.title-content {
+  max-width: 940px;
+  background-color: #232222;
+  margin-top: 0px;
+}
+
+.title-description {
+  margin-bottom: 15px;
+  color: #cccccc;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-start;
+  background-color: #171616; /* Dark background color */
+  padding: 10px 20px;
+  border-bottom: 1px solid #333; /* Subtle border at the bottom */
+}
+
+.tab-button {
+  background-color: transparent;
+  color: #999; /* Light gray text for inactive buttons */
+  border: none;
+  padding: 10px 20px;
+  margin-right: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  position: relative;
+  transition: color 0.3s;
+}
+
+.tab-button:hover {
+  color: #fff; /* White text on hover */
+}
+
+.tab-button.active {
+  color: #fff; /* White text for active button */
+}
+
+.tab-button.active::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #56890c; /* Green underline for active button */
+}
+
+.outer-container {
+  display: none;
+  background-color: #232222;
+  max-width: 900px;
+  margin-top: 40px;
+  padding: 20px;
+  width: 100%;
+}
+
+.outer-container.active {
+  display: block;
+}
+
+.inner-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.legend-box {
+  background-color: #3a3939;
+  border: 2px dashed #222222;
+  padding: 20px;
+  margin: 20px;
+}
+
+#content {
+  flex: 1;
+  background-color: #232222;
+}
+
+.content-box {
+  background-color: #232222;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+ol {
+  color: #aeadac;
+  margin: 0;
+  padding-left: 20px;
+}
+
+h2 {
+  color: #999999;
+  margin-top: 0;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+
+#content-container h2 {
+  color: #d33131;
+  font-size: 25px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+#content-container h3{
+  color: #d33131;
+  font-size: 20px;
+  display: inline;
+  font-weight: normal;
+  margin: 0;
+}
+
+
+.sub-list {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.sub-list li {
+  margin-bottom: 5px;
+  padding-left: 20px;
+  position: relative;
+}
+
+.sub-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #cccccc;
+}
+
+.sub-name {
+  color: #e0e0e0;
+  font-weight: bold;
+}
+
+.sub-name a {
+  color: #cccccc;
+  text-decoration: none;
+}
+
+.sub-name a:hover {
+  text-decoration: underline;
+}
+
+.sub-overview {
+  color: #959493;
+  font-style: italic;
+}
+
