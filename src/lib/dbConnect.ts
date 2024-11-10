@@ -3,10 +3,16 @@ import mongoose from 'mongoose';
 const MONGO_DB_URI = process.env.MONGO_DB_URI;
 const MONGO_DB_NAME = process.env.MONGO_DB_NAME;
 
+declare global {
+  var mongoose: {
+    conn: mongoose.Mongoose | null;
+  };
+}
+
 let cached = global.mongoose;
 
 if (!cached) {
-  cached = global.mongoose = { conn: null, promise: null };
+  cached = global.mongoose = { conn: null };
 }
 
 export async function dbConnect() {
@@ -17,15 +23,10 @@ export async function dbConnect() {
     throw new Error('Please define the MONGO_DB_NAME environment variable');
   }
 
-  if (cached.conn) {
-    return cached.conn;
-  }
-
-  if (!cached.promise) {
-    cached.promise = mongoose.connect(MONGO_DB_URI, { dbName: MONGO_DB_NAME }).then(() => {
-      return mongoose;
+  if (!cached.conn) {
+    cached.conn = await mongoose.connect(MONGO_DB_URI, {
+      dbName: MONGO_DB_NAME,
     });
   }
-  cached.conn = await cached.promise;
   return cached.conn;
 }
