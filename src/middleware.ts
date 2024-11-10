@@ -26,6 +26,6 @@ export function middleware(req: NextRequest) {
 
 // Specify the paths to protect
 export const config = {
-  matcher: RESTRICTED_PATHS,
+  matcher: ['/dashboard', '/create', '/edit/:path*', '/api/edit/:path*', '/api/delete/:path*', '/create'],
 };
 
