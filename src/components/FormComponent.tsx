@@ -32,7 +32,7 @@ const FormComponent = ({ actionText, initialData }: FormProps) => {
 		}
 
 		const isEdit = initialData?._id ? true : false;
-		const apiUrl = isEdit ? `/api/edit/${initialData._id}` : '/api/edit';
+		const apiUrl = isEdit ? `/api/edit/${initialData?._id}` : '/api/edit';
 		const method = isEdit ? 'PUT' : 'POST';
 
 		const res = await fetch(apiUrl, {
